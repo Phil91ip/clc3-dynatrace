@@ -1,0 +1,21 @@
+FROM openjdk:17
+RUN mkdir /application
+COPY . /application
+WORKDIR /application
+RUN /application/mvnw install
+RUN mv /application/target/*.jar /application/app.jar
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/application/app.jar"]
+
+docker build --no-cache -t servicea:v01 .
+docker run -it --rm -p 8080:8080 servicea
+
+docker tag servicea:v01 phil91ip/servicea
+docker push phil91ip/servicea
+
+kubectl get deployments
+kubectl delete deployment servicea
+
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+
+kubectl describe service servicea
