@@ -1,5 +1,6 @@
 package com.example.servicea;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,38 +13,50 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class ServiceA {
     Random rand = new Random();
+    static final String uriServiceB = "http://localhost:8081";//"http://serviceb";
+    static final String uriServiceC = "http://localhost:8082";//"http://servicec";
+    static final String uriServiceC2 = "http://localhost:8082/doSomething";//"http://servicec/doSomething";
     public static void main(String[] args) {
-
-
         SpringApplication.run(ServiceA.class, args);
     }
 
     @GetMapping("/")
-    public String sayHello(@RequestParam(value = "myName", defaultValue = "World") String name) {
-        if(rand.nextInt(10) <= 5) {
-            return String.format("Hello %s!", callServiceB());
-        } else {
-            return String.format("Hello %s!", callServiceC());
+    public String sayHello() {
+        int rnd = rand.nextInt(3);
+        switch (rnd){
+            case 0:
+                return String.format("%s!", callServiceB());
+            case 1:
+                return String.format("%s!", callServiceC());
+            case 2:
+                return String.format("%s!", callServiceC2());
+            default:
+                return "Something strange happened!";
         }
-
     }
 
     private static String callServiceB()
     {
-        final String uri = "http://serviceb";
-
         RestTemplate restTemplate = new RestTemplate();
-        String result = restTemplate.getForObject(uri, String.class);
+        String result = restTemplate.getForObject(uriServiceB, String.class);
         return result;
+    }
+
+    @GetMapping("/getRandom")
+    public int getRandom() {
+        return rand.nextInt(100);
     }
 
     private static String callServiceC()
     {
-        final String uri = "http://servicec";
-
         RestTemplate restTemplate = new RestTemplate();
-        String result = restTemplate.getForObject(uri, String.class);
+        String result = restTemplate.getForObject(uriServiceC, String.class);
         return result;
     }
-
+    private static String callServiceC2()
+    {
+        RestTemplate restTemplate = new RestTemplate();
+        String result = restTemplate.getForObject(uriServiceC2, String.class);
+        return result;
+    }
 }

@@ -19,3 +19,12 @@ kubectl apply -f deployment.yaml
 kubectl apply -f service.yaml
 
 kubectl describe service servicea
+
+---------------
+kubectl delete -f https://github.com/Dynatrace/dynatrace-operator/releases/download/v0.10.1/kubernetes.yaml
+kubectl delete dynakube --all -n dynatrace
+kubectl -n dynatrace wait pod --for=condition=delete --selector=app.kubernetes.io/name=oneagent,app.kubernetes.io/managed-by=dynatrace-operator --timeout=300s
+kubectl delete -f https://github.com/Dynatrace/dynatrace-operator/releases/download/v0.10.1/kubernetes-csi.yaml
+kubectl delete -f https://github.com/Dynatrace/dynatrace-operator/releases/download/v0.10.1/kubernetes.yaml
+kubectl delete namespace dynatrace
+
