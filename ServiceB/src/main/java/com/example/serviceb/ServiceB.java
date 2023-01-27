@@ -14,8 +14,7 @@ import java.util.concurrent.TimeUnit;
 @RestController
 public class ServiceB {
     Random rand = new Random();
-    static final String uriServiceA = "http://localhost:8080";//"http://servicea";
-    static final String uriServiceC = "http://localhost:8082";//"http://servicec";
+    static final String uriServiceC = "http://servicec"; //"http://localhost:8082";
 
     public static void main(String[] args) {
         SpringApplication.run(ServiceB.class, args);

@@ -13,8 +13,8 @@ import java.util.Random;
 @RestController
 public class ServiceC {
     Random rand = new Random();
-    static final String uriServiceA = "http://localhost:8080";//"http://servicea";
-    static final String uriServiceB = "http://localhost:8081";//"http://serviceb";
+    static final String uriServiceA = "http://servicea"; //"http://localhost:8080";
+    static final String uriServiceB = "http://serviceb"; //"http://localhost:8081";
     public static void main(String[] args) {
         SpringApplication.run(ServiceC.class, args);
     }

@@ -13,9 +13,9 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class ServiceA {
     Random rand = new Random();
-    static final String uriServiceB = "http://localhost:8081";//"http://serviceb";
-    static final String uriServiceC = "http://localhost:8082";//"http://servicec";
-    static final String uriServiceC2 = "http://localhost:8082/doSomething";//"http://servicec/doSomething";
+    static final String uriServiceB = "http://serviceb"; //"http://localhost:8081";
+    static final String uriServiceC = "http://servicec"; //"http://localhost:8082";
+    static final String uriServiceC2 = "http://servicec/doSomething"; //"http://localhost:8082/doSomething";
     public static void main(String[] args) {
         SpringApplication.run(ServiceA.class, args);
     }
