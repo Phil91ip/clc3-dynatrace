@@ -1,23 +1,23 @@
 # clc3-dynatrace
 ## Table of Contents
-- [clc3-dynatrace](#clc3-dynatrace)
-  - [Table of Contents](#table-of-contents)
-  - [Introduction](#introduction)
-  - [Used Technologies](#used-technologies)
-  - [Milestones](#milestones)
-  - [Architecture](#architecture)
-  - [Dynatrace Components](#dynatrace-components)
-  - [Services](#services)
-  - [Steps to set up Dynatrace](#steps-to-set-up-dynatrace)
-    - [1. Create a Kubernetes Cluster](#1-create-a-kubernetes-cluster)
-    - [2. Deploy Services in Kubernetes Cluster](#2-deploy-services-in-kubernetes-cluster)
-    - [3. Set up Dynatrace](#3-set-up-dynatrace)
-  - [Test - Traffic](#test---traffic)
-  - [Results](#results)
-    - [Dynatrace Dashboard](#dynatrace-dashboard)
-    - [Distributed Tracing (PurePath)](#distributed-tracing-purepath)
-    - [Kubernetes Cluster Overview](#kubernetes-cluster-overview)
-  - [Lessons Learned](#lessons-learned)
+
+
+- [Introduction](#introduction)
+- [Used Technologies](#used-technologies)
+- [Milestones](#milestones)
+- [Architecture](#architecture)
+- [Dynatrace Components](#dynatrace-components)
+- [Services](#services)
+- [Steps to set up Dynatrace](#steps-to-set-up-dynatrace)
+  - [1. Create a Kubernetes Cluster](#1-create-a-kubernetes-cluster)
+  - [2. Deploy Services in Kubernetes Cluster](#2-deploy-services-in-kubernetes-cluster)
+  - [3. Set up Dynatrace](#3-set-up-dynatrace)
+- [Test - Traffic](#test---traffic)
+- [Results](#results)
+  - [Dynatrace Dashboard](#dynatrace-dashboard)
+  - [Distributed Tracing (PurePath)](#distributed-tracing-purepath)
+  - [Kubernetes Cluster Overview](#kubernetes-cluster-overview)
+- [Lessons Learned](#lessons-learned)
 
 ## Introduction
 This project aims to observe a Kubernetes cluster with several services running in pods (at least 3) and get metrics about their health, status and how they are communicating. The services are implemented in Java and throw randomly exceptions and produce delays. The Dynatrace software will observe this behavior and visualize some metrics. Another Part of this project is the distributed tracing. Dynatrace PurePath is a feature that combines distributed tracing with code-level visibility, topology information, and metadata to provide detailed data granularity and fidelity.
