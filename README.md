@@ -91,7 +91,7 @@ kubectl descrive service servicea
 ```
 ### 3. Set up Dynatrace
 * Create a Dynatrace account
-* Deploy Dynatrace on Kubernetes (follow the [Quickstart](hhttps://www.dynatrace.com/support/help/setup-and-configuration/setup-on-container-platforms/kubernetes/get-started-with-kubernetes-monitoring#expand--instructions-for-automated-mode--2))
+* Deploy Dynatrace on Kubernetes (follow the [Quickstart](https://www.dynatrace.com/support/help/setup-and-configuration/setup-on-container-platforms/kubernetes/get-started-with-kubernetes-monitoring#expand--instructions-for-automated-mode--2))
 * Important Note: Enable **volumen storage** when using Google Cloud
 * After following the Steps, create and download the dynakube.yaml file
 * Apply the following commands on your cluster
@@ -135,9 +135,8 @@ Below you can see some screenshots of the results in the Dynatrace UI.
 ## Lessons Learned
 * Docker hub is a powerful tool for quickly deploying new versions. 
 * Dynatrace has certain requirements for monitoring, such as a minimum number of nodes
-* Running a Kubernetes cluster on Google Cloud is very expensive
+* Running a Kubernetes cluster on Google Cloud could get expensive
 * Running a Kubernetes cluster also requires maybe certain requirements in configuration
-* Dynatrace ist sehr mächtig und bietet viele Möglichkeiten
 * Dynatrace is very powerful and offers many capabilities
 
 
